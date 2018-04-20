@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: sell
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: zlirito
+Implementation-Vendor-Id: com.test
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_161
+Main-Class: ${start-class}
+
