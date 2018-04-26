@@ -1,5 +1,7 @@
 package com.test.sell.DataTransferObject;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.test.sell.dataobject.OrderDetail;
 import com.test.sell.enums.OrderStatusEnums;
 import com.test.sell.enums.PayStatusEnums;
@@ -14,7 +16,10 @@ import java.util.List;
  * @date: 四月 2018/4/17 13:43
  * @version：
  */
+//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+//    @JsonInclude(JsonInclude.Include.NON_NULL)//作用：让返回值是null的数据不显示出来。
 public class OrderDTO {
+
     private String orderId; //订单id
     private String buyerName; //买家名字
     private String buyerPhone; //买家电话

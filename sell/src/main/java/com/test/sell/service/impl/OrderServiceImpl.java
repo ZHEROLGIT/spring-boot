@@ -81,12 +81,14 @@ public class OrderServiceImpl implements OrderService{
         }
         //3.写入订单数据库（orderMaster和orderDetail）
         OrderMaster orderMaster = new OrderMaster();
+        orderDTO.setOrderId(orderId);
+        orderDTO.setOrderStatus(OrderStatusEnums.NEW.getCode());
+        orderDTO.setPayStatus(PayStatusEnums.WAIT.getCode());
         BeanUtils.copyProperties(orderDTO,orderMaster);
-        orderMaster.setOrderId(orderId);
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setBuyerPhone("1234567890");
-        orderMaster.setOrderStatus(OrderStatusEnums.NEW.getCode());
-        orderMaster.setPayStatus(PayStatusEnums.WAIT.getCode());
+//        orderMaster.setOrderStatus(OrderStatusEnums.NEW.getCode());
+//        orderMaster.setPayStatus(PayStatusEnums.WAIT.getCode());
         orderMasterDao.save(orderMaster);
         //4.扣库存
         List<CartDTO> cartDTOList = orderDTO.getOrderDetailList().stream().map(e ->
